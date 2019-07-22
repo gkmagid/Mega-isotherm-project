@@ -1,0 +1,10 @@
+with open(f'{adsorbate}_{adsorbent}_{temperature}_{ads_unit}', 'w+') as out:
+    fieldnames = ['pressure', 'Q', 'filename']
+    writer = csv.DictWriter(out, fieldnames=fieldnames)
+
+    writer.writeheader()
+
+    for datapoint in data:
+        writer.writerow({'pressure': datapoint[0], 'Q': datapoint[1], 'filename': datapoint[2]})
+
+    out.close()
